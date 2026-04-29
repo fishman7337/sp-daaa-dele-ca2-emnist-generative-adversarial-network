@@ -19,13 +19,13 @@ The original notebook is large, so `scripts/split_notebook.py` breaks it into so
 ## Regenerating Notebook Parts
 
 ```bash
-python scripts/split_notebook.py --source "DELE_CA2_A (8).ipynb" --output notebooks/parts
+python scripts/split_notebook.py --source "notebooks/DELE_CA2_A (8).ipynb" --output notebooks/parts
 ```
 
 To verify committed split notebooks match the original notebook source:
 
 ```bash
-python scripts/split_notebook.py --source "DELE_CA2_A (8).ipynb" --output notebooks/parts --check
+python scripts/split_notebook.py --source "notebooks/DELE_CA2_A (8).ipynb" --output notebooks/parts --check
 ```
 
 ## Review Policy

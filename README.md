@@ -3,7 +3,7 @@
 [![CI](https://github.com/fishman7337/emnist-generative-adversarial-network/actions/workflows/ci.yml/badge.svg)](https://github.com/fishman7337/emnist-generative-adversarial-network/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/fishman7337/emnist-generative-adversarial-network/actions/workflows/codeql.yml/badge.svg)](https://github.com/fishman7337/emnist-generative-adversarial-network/actions/workflows/codeql.yml)
 
-Reusable documentation, notebook splits, tests, and MLOps scaffolding for an EMNIST generative modeling coursework project. The original project notebook is preserved at [`DELE_CA2_A (8).ipynb`](DELE_CA2_A%20(8).ipynb); smaller source-only notebook sections are generated under [`notebooks/parts`](notebooks/parts).
+Reusable documentation, notebook splits, tests, and MLOps scaffolding for an EMNIST generative modeling coursework project. The original project notebook is preserved at [`notebooks/DELE_CA2_A (8).ipynb`](notebooks/DELE_CA2_A%20(8).ipynb); smaller source-only notebook sections are generated under [`notebooks/parts`](notebooks/parts).
 
 ## Academic Context
 
@@ -23,8 +23,9 @@ The coursework explores generative modeling for selected EMNIST letter classes. 
 
 ```text
 .
-├── DELE_CA2_A (8).ipynb        # Preserved original notebook
-├── notebooks/parts/            # Generated source-only notebook sections
+├── notebooks/
+│   ├── DELE_CA2_A (8).ipynb    # Preserved original notebook
+│   └── parts/                  # Generated source-only notebook sections
 ├── src/emnist_gan/             # Reusable Python utilities
 ├── tests/                      # Pytest coverage for extracted utilities
 ├── docs/                       # Project, data, model, and MLOps documentation
@@ -59,7 +60,7 @@ Copy `.env.example` to `.env` for local paths and experiment defaults. Do not co
 The original notebook is intentionally retained for auditability. To regenerate the smaller notebooks:
 
 ```bash
-python scripts/split_notebook.py --source "DELE_CA2_A (8).ipynb" --output notebooks/parts
+python scripts/split_notebook.py --source "notebooks/DELE_CA2_A (8).ipynb" --output notebooks/parts
 ```
 
 Generated split notebooks preserve markdown and code cell source, but remove execution counts and outputs so they stay reviewable in pull requests.

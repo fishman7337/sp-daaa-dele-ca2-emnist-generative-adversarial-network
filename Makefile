@@ -22,4 +22,4 @@ security:
 	pip-audit -r requirements.txt -r requirements-dev.txt
 
 split-notebooks:
-	python scripts/split_notebook.py --source "DELE_CA2_A (8).ipynb" --output notebooks/parts
+	python scripts/split_notebook.py --source "notebooks/DELE_CA2_A (8).ipynb" --output notebooks/parts

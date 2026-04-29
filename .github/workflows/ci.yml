@@ -38,7 +38,7 @@ jobs:
         run: pytest --cov=emnist_gan --cov-report=term-missing
 
       - name: Verify split notebooks
-        run: python scripts/split_notebook.py --source "DELE_CA2_A (8).ipynb" --output notebooks/parts --check
+        run: python scripts/split_notebook.py --source "notebooks/DELE_CA2_A (8).ipynb" --output notebooks/parts --check
 
   security:
     name: Security checks

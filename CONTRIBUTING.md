@@ -30,7 +30,7 @@ python -m pip install -e ".[ml,notebook]"
 ```bash
 ruff check .
 pytest
-python scripts/split_notebook.py --source "DELE_CA2_A (8).ipynb" --output notebooks/parts --check
+python scripts/split_notebook.py --source "notebooks/DELE_CA2_A (8).ipynb" --output notebooks/parts --check
 bandit -q -r src scripts
 pip-audit -r requirements.txt -r requirements-dev.txt
 ```
@@ -40,7 +40,7 @@ pip-audit -r requirements.txt -r requirements-dev.txt
 The original notebook should remain available for auditability. If it changes, regenerate the split notebooks:
 
 ```bash
-python scripts/split_notebook.py --source "DELE_CA2_A (8).ipynb" --output notebooks/parts
+python scripts/split_notebook.py --source "notebooks/DELE_CA2_A (8).ipynb" --output notebooks/parts
 ```
 
 Generated split notebooks should remain source-only with outputs removed.
