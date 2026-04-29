@@ -4,6 +4,8 @@ title: "EMNIST Generative Modeling Lab"
 authors:
   - family-names: "Goh"
     given-names: "Kun Ming"
+  - family-names: "Goh"
+    given-names: "Jenson"
 version: 0.1.0
 date-released: "2026-04-29"
 institution: "Singapore Polytechnic, School of Computing"
@@ -13,4 +15,4 @@ keywords:
   - VAE
   - Deep Learning
   - MLOps
-repository-code: "https://github.com/fishman7337/emnist-generative-adversarial-network"
+repository-code: "https://github.com/fishman7337/sp-daaa-dele-ca2-emnist-generative-adversarial-network"

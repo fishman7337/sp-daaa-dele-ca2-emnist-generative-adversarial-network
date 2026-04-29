@@ -5,6 +5,7 @@ All notable changes to this repository will be documented here.
 ## 0.1.0 - 2026-04-29
 
 - Reframed the project as the EMNIST Generative Modeling Lab.
+- Added MIT licensing and credited both project contributors.
 - Added a reusable Python package under `src/emnist_gan`.
 - Added focused pytest coverage for preprocessing, metrics, configuration, and reproducible sampling.
 - Added CI, security scanning, CodeQL, Dependabot, and pre-commit configuration.

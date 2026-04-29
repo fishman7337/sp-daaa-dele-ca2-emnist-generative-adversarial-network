@@ -1,13 +1,13 @@
 # EMNIST Generative Modeling Lab
 
-[![CI](https://github.com/fishman7337/emnist-generative-adversarial-network/actions/workflows/ci.yml/badge.svg)](https://github.com/fishman7337/emnist-generative-adversarial-network/actions/workflows/ci.yml)
-[![CodeQL](https://github.com/fishman7337/emnist-generative-adversarial-network/actions/workflows/codeql.yml/badge.svg)](https://github.com/fishman7337/emnist-generative-adversarial-network/actions/workflows/codeql.yml)
+[![CI](https://github.com/fishman7337/sp-daaa-dele-ca2-emnist-generative-adversarial-network/actions/workflows/ci.yml/badge.svg)](https://github.com/fishman7337/sp-daaa-dele-ca2-emnist-generative-adversarial-network/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/fishman7337/sp-daaa-dele-ca2-emnist-generative-adversarial-network/actions/workflows/codeql.yml/badge.svg)](https://github.com/fishman7337/sp-daaa-dele-ca2-emnist-generative-adversarial-network/actions/workflows/codeql.yml)
 
 Reusable documentation, notebook splits, tests, and MLOps scaffolding for an EMNIST generative modeling coursework project. The original project notebook is preserved at [`notebooks/DELE_CA2_A (8).ipynb`](notebooks/DELE_CA2_A%20(8).ipynb); smaller source-only notebook sections are generated under [`notebooks/parts`](notebooks/parts).
 
 ## Academic Context
 
-This project was completed under Singapore Polytechnic, School of Computing, Diploma in Applied AI & Analytics, for ST1504 Deep Learning CA2 Part A. It was done by Goh Kun Ming, DAAA student, in AY25/26 Year 2 Semester 1, under Lecturer Gerald Chua Deng Xiang.
+This project was completed under Singapore Polytechnic, School of Computing, Diploma in Applied AI & Analytics, for ST1504 Deep Learning CA2 Part A. It was done by Goh Kun Ming and Goh Jenson, DAAA students, in AY25/26 Year 2 Semester 1, under Lecturer Gerald Chua Deng Xiang.
 
 ## Project Scope
 
@@ -96,4 +96,4 @@ pip-audit -r requirements.txt -r requirements-dev.txt
 
 ## License
 
-No open-source license has been declared yet. Until a license is added by the repository owner, all rights are reserved by the project author.
+This project is licensed under the [MIT License](LICENSE).

@@ -36,11 +36,17 @@ artifacts/models/*
 artifacts/logs/*
 
 !data/raw/.gitkeep
+!data/raw/README.md
 !data/interim/.gitkeep
+!data/interim/README.md
 !data/processed/.gitkeep
+!data/processed/README.md
 !reports/figures/.gitkeep
+!reports/figures/README.md
 !artifacts/models/.gitkeep
+!artifacts/models/README.md
 !artifacts/logs/.gitkeep
+!artifacts/logs/README.md
 
 # Model checkpoints and large binaries
 *.h5

@@ -4,7 +4,7 @@
 
 This project was completed under Singapore Polytechnic, School of Computing, Diploma in Applied AI & Analytics, for the module ST1504 Deep Learning, CA2 Part A.
 
-- Student: Goh Kun Ming
+- Students: Goh Kun Ming and Goh Jenson
 - Programme: Diploma in Applied AI & Analytics
 - Academic period: AY25/26 Year 2 Semester 1
 - Lecturer: Gerald Chua Deng Xiang
