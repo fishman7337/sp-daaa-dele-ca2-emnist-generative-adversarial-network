@@ -1,0 +1,10 @@
+matplotlib>=3.8
+numpy>=1.24
+optuna>=3.6
+pandas>=2.0
+scikit-image>=0.22
+scikit-learn>=1.4
+scipy>=1.11
+seaborn>=0.13
+tensorflow>=2.15
+visualkeras>=0.1

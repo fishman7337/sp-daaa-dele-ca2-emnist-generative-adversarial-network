@@ -1,0 +1,18 @@
+* text=auto eol=lf
+
+*.ipynb text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.toml text eol=lf
+*.txt text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+*.h5 binary
+*.keras binary
+*.ckpt binary
+*.onnx binary
+*.tflite binary
+*.png binary
+*.jpg binary
+*.jpeg binary

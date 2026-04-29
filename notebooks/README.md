@@ -1,0 +1,21 @@
+# Notebooks
+
+The original coursework notebook remains at the repository root:
+
+```text
+DELE_CA2_A (8).ipynb
+```
+
+Generated source-only splits live in `notebooks/parts/`. They are created from the original notebook to make review and navigation easier.
+
+Regenerate them with:
+
+```bash
+python scripts/split_notebook.py --source "DELE_CA2_A (8).ipynb" --output notebooks/parts
+```
+
+Verify without writing files:
+
+```bash
+python scripts/split_notebook.py --source "DELE_CA2_A (8).ipynb" --output notebooks/parts --check
+```

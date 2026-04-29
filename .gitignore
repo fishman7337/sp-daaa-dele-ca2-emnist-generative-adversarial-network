@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.Python
+.pytest_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+build/
+dist/
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Data and generated outputs
+data/raw/*
+data/interim/*
+data/processed/*
+reports/figures/*
+artifacts/models/*
+artifacts/logs/*
+
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+!reports/figures/.gitkeep
+!artifacts/models/.gitkeep
+!artifacts/logs/.gitkeep
+
+# Model checkpoints and large binaries
+*.h5
+*.keras
+*.ckpt
+*.weights.h5
+*.tflite
+*.onnx
+*.pkl
+*.joblib
+*.sqlite
+*.sqlite3
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
