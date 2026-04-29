@@ -80,7 +80,7 @@ def split_notebook(source: Path) -> dict[str, dict[str, Any]]:
     split: dict[str, dict[str, Any]] = {}
     for section_index, (title, cells) in enumerate(sections):
         metadata = copy.deepcopy(base_metadata)
-        metadata["split_from"] = str(source)
+        metadata["split_from"] = source.as_posix()
         metadata["split_section"] = title
         split[f"{slugify(title, section_index)}.ipynb"] = {
             "cells": cells,
