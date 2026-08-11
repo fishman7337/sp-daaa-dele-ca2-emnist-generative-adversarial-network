@@ -10,7 +10,6 @@ from numpy.typing import ArrayLike, NDArray
 
 def make_image_grid(images: ArrayLike, rows: int, cols: int) -> NDArray[np.float32]:
     """Arrange grayscale images into a single image grid array."""
-
     if rows <= 0 or cols <= 0:
         raise ValueError("rows and cols must be positive")
     array = np.asarray(images, dtype=np.float32)
@@ -30,7 +29,6 @@ def make_image_grid(images: ArrayLike, rows: int, cols: int) -> NDArray[np.float
 
 def save_image_grid(images: ArrayLike, output_path: str | Path, rows: int, cols: int) -> Path:
     """Save a generated sample grid using matplotlib when available."""
-
     try:
         import matplotlib.pyplot as plt
     except ImportError as exc:

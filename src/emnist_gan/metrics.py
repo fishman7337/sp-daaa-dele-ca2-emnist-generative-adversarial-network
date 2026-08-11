@@ -8,7 +8,6 @@ from numpy.typing import ArrayLike, NDArray
 
 def polynomial_kernel(features_x: ArrayLike, features_y: ArrayLike) -> NDArray[np.float64]:
     """Compute the cubic polynomial kernel used by the KID metric."""
-
     x = np.asarray(features_x, dtype=np.float64)
     y = np.asarray(features_y, dtype=np.float64)
     if x.ndim != 2 or y.ndim != 2:
@@ -25,7 +24,6 @@ def estimate_kid_from_features(real_features: ArrayLike, fake_features: ArrayLik
     The unbiased finite-sample estimate can be slightly negative for very small
     sample sizes, even when the two feature sets are identical.
     """
-
     real = np.asarray(real_features, dtype=np.float64)
     fake = np.asarray(fake_features, dtype=np.float64)
     if real.shape[0] < 2 or fake.shape[0] < 2:
@@ -48,7 +46,6 @@ def estimate_kid_from_features(real_features: ArrayLike, fake_features: ArrayLik
 
 def assess_mode_collapse(images: ArrayLike, threshold: float = 0.9, decimals: int = 0) -> str:
     """Flag likely mode collapse by comparing rounded unique samples to total samples."""
-
     if not 0.0 < threshold <= 1.0:
         raise ValueError("threshold must be in the interval (0, 1]")
     array = np.asarray(images)

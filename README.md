@@ -3,7 +3,16 @@
 [![CI](https://github.com/fishman7337/sp-daaa-dele-ca2-emnist-generative-adversarial-network/actions/workflows/ci.yml/badge.svg)](https://github.com/fishman7337/sp-daaa-dele-ca2-emnist-generative-adversarial-network/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/fishman7337/sp-daaa-dele-ca2-emnist-generative-adversarial-network/actions/workflows/codeql.yml/badge.svg)](https://github.com/fishman7337/sp-daaa-dele-ca2-emnist-generative-adversarial-network/actions/workflows/codeql.yml)
 
-Reusable documentation, notebook splits, tests, and MLOps scaffolding for an EMNIST generative modeling coursework project. The original project notebook is preserved at [`notebooks/DELE_CA2_A (8).ipynb`](notebooks/DELE_CA2_A%20(8).ipynb); smaller source-only notebook sections are generated under [`notebooks/parts`](notebooks/parts).
+Reusable documentation, notebook splits, tests, and MLOps scaffolding for an EMNIST generative modeling coursework project. The original project notebook is preserved at [`notebooks/DELE_CA2_A (8).ipynb`](<notebooks/DELE_CA2_A%20(8).ipynb>); smaller source-only notebook sections are generated under [`notebooks/parts`](notebooks/parts).
+
+## Evidence and interpretation
+
+| Evidence-backed measure | Current repository evidence |
+| --- | --- |
+| Character scope | **16 selected EMNIST Letters classes** are fixed in the reusable configuration and data card. |
+| Architecture coverage | The study records **8 named base GAN families**, plus conditional/variational extensions and FID/KID instrumentation. |
+
+The qualitative outcome is a broad, reproducible generative-model research scaffold with imbalance analysis, optimisation, and embedding visualisation. The dataset is EMNIST Letters—not MNIST—and no model is claimed superior without a pinned FID/KID artifact.
 
 ## Academic Context
 

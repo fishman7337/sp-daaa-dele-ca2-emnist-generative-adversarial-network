@@ -14,6 +14,7 @@ NUMBERED_SECTION = re.compile(r"^\d+\.\s+")
 
 
 def parse_args() -> argparse.Namespace:
+    """Parse source, output, and verification options."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, required=True, help="path to the source .ipynb file")
     parser.add_argument("--output", type=Path, required=True, help="directory for split notebooks")
@@ -26,15 +27,32 @@ def parse_args() -> argparse.Namespace:
 
 
 def read_notebook(path: Path) -> dict[str, Any]:
+    """Load a notebook JSON document.
+
+    Args:
+        path: Notebook path.
+
+    Returns:
+        Parsed notebook mapping.
+    """
     with path.open("r", encoding="utf-8") as handle:
         return json.load(handle)
 
 
 def serialise_notebook(notebook: dict[str, Any]) -> str:
+    """Serialize a notebook deterministically with a trailing newline."""
     return json.dumps(notebook, ensure_ascii=False, indent=2) + "\n"
 
 
 def extract_section_title(cell: dict[str, Any]) -> str | None:
+    """Extract a recognized top-level section title from a markdown cell.
+
+    Args:
+        cell: Notebook cell to inspect.
+
+    Returns:
+        A recognized section title, or ``None`` for non-section cells.
+    """
     if cell.get("cell_type") != "markdown":
         return None
     source = "".join(cell.get("source", []))
@@ -49,6 +67,15 @@ def extract_section_title(cell: dict[str, Any]) -> str | None:
 
 
 def slugify(title: str, section_index: int) -> str:
+    """Build a stable, ordered filename stem for a notebook section.
+
+    Args:
+        title: Human-readable section title.
+        section_index: Zero-based section order.
+
+    Returns:
+        A filesystem-safe stem prefixed with the section order.
+    """
     if title.startswith("ST1504"):
         clean_title = "project overview"
     else:
@@ -58,6 +85,14 @@ def slugify(title: str, section_index: int) -> str:
 
 
 def clean_cell(cell: dict[str, Any]) -> dict[str, Any]:
+    """Copy a cell while removing execution state from code cells.
+
+    Args:
+        cell: Source notebook cell.
+
+    Returns:
+        A deep-copied, source-only cell.
+    """
     cleaned = copy.deepcopy(cell)
     if cleaned.get("cell_type") == "code":
         cleaned["execution_count"] = None
@@ -66,6 +101,14 @@ def clean_cell(cell: dict[str, Any]) -> dict[str, Any]:
 
 
 def split_notebook(source: Path) -> dict[str, dict[str, Any]]:
+    """Split a source notebook at recognized top-level headings.
+
+    Args:
+        source: Preserved coursework notebook path.
+
+    Returns:
+        Generated filenames mapped to source-only notebook documents.
+    """
     notebook = read_notebook(source)
     base_metadata = copy.deepcopy(notebook.get("metadata", {}))
     sections: list[tuple[str, list[dict[str, Any]]]] = []
@@ -92,6 +135,12 @@ def split_notebook(source: Path) -> dict[str, dict[str, Any]]:
 
 
 def write_split_notebooks(split: dict[str, dict[str, Any]], output_dir: Path) -> None:
+    """Write current section notebooks and remove obsolete generated sections.
+
+    Args:
+        split: Generated filenames mapped to notebook documents.
+        output_dir: Destination directory for generated notebooks.
+    """
     output_dir.mkdir(parents=True, exist_ok=True)
     expected_names = set(split)
 
@@ -104,6 +153,15 @@ def write_split_notebooks(split: dict[str, dict[str, Any]], output_dir: Path) ->
 
 
 def check_split_notebooks(split: dict[str, dict[str, Any]], output_dir: Path) -> int:
+    """Check committed section notebooks against freshly generated content.
+
+    Args:
+        split: Expected filenames mapped to notebook documents.
+        output_dir: Directory containing committed section notebooks.
+
+    Returns:
+        ``0`` when every generated file matches, otherwise ``1``.
+    """
     missing_or_changed: list[str] = []
     for file_name, notebook in split.items():
         path = output_dir / file_name
@@ -129,6 +187,7 @@ def check_split_notebooks(split: dict[str, dict[str, Any]], output_dir: Path) ->
 
 
 def main() -> int:
+    """Generate section notebooks or verify their committed state."""
     args = parse_args()
     split = split_notebook(args.source)
     if args.check:
