@@ -11,7 +11,6 @@ from numpy.typing import NDArray
 
 def set_random_seed(seed: int = 42) -> None:
     """Seed Python, NumPy, and TensorFlow when TensorFlow is installed."""
-
     random.seed(seed)
     np.random.seed(seed)
     try:
@@ -28,7 +27,6 @@ def make_latent_vectors(
     distribution: Literal["normal", "uniform"] = "normal",
 ) -> NDArray[np.float32]:
     """Create deterministic latent vectors for generator smoke tests and sampling."""
-
     if num_samples <= 0:
         raise ValueError("num_samples must be positive")
     if latent_dim <= 0:

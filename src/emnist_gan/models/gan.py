@@ -24,7 +24,6 @@ def build_dense_generator(
     output_shape: Sequence[int] = (28, 28, 1),
 ):
     """Build the original notebook's fully connected GAN generator."""
-
     if latent_dim <= 0:
         raise ValueError("latent_dim must be positive")
     if units <= 0:
@@ -44,7 +43,6 @@ def build_dense_generator(
 
 def build_dense_discriminator(input_shape: Sequence[int] = (28, 28, 1), units: int = 256):
     """Build the original notebook's fully connected GAN discriminator."""
-
     if units <= 1:
         raise ValueError("units must be greater than 1")
 
@@ -62,7 +60,6 @@ def build_dense_discriminator(input_shape: Sequence[int] = (28, 28, 1), units: i
 
 def generator_loss(fake_output):
     """Binary cross-entropy generator objective."""
-
     tf = _require_tensorflow()
     cross_entropy = tf.keras.losses.BinaryCrossentropy(from_logits=False)
     return cross_entropy(tf.ones_like(fake_output), fake_output)
@@ -70,7 +67,6 @@ def generator_loss(fake_output):
 
 def discriminator_loss(real_output, fake_output):
     """Binary cross-entropy discriminator objective."""
-
     tf = _require_tensorflow()
     cross_entropy = tf.keras.losses.BinaryCrossentropy(from_logits=False)
     real_loss = cross_entropy(tf.ones_like(real_output), real_output)

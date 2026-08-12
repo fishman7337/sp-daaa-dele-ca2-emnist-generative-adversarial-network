@@ -9,6 +9,7 @@ from emnist_gan.config import DatasetConfig, ProjectPaths
 
 
 def build_parser() -> argparse.ArgumentParser:
+    """Build the EMNIST project utility argument parser."""
     parser = argparse.ArgumentParser(description="EMNIST generative modeling project utilities")
     parser.add_argument("--version", action="store_true", help="print the package version")
     parser.add_argument("--show-paths", action="store_true", help="print resolved project paths")
@@ -16,6 +17,15 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Run project metadata and path health checks.
+
+    Args:
+        argv: Command-line arguments without the executable name. Uses
+            ``sys.argv`` when omitted.
+
+    Returns:
+        A process exit code.
+    """
     parser = build_parser()
     args = parser.parse_args(argv)
 

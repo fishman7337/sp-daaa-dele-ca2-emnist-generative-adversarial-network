@@ -28,10 +28,12 @@ class DatasetConfig:
 
     @property
     def image_shape(self) -> tuple[int, int, int]:
+        """Return the configured image dimensions in channels-last order."""
         return (self.image_height, self.image_width, self.image_channels)
 
     @property
     def num_classes(self) -> int:
+        """Return the number of selected EMNIST label classes."""
         return len(self.selected_labels)
 
 
@@ -71,6 +73,11 @@ class ProjectPaths:
 
     @classmethod
     def from_env(cls) -> ProjectPaths:
+        """Resolve project paths from environment variables and defaults.
+
+        Returns:
+            Absolute paths rooted at ``PROJECT_ROOT`` or the current directory.
+        """
         root = _env_path("PROJECT_ROOT", ".").resolve()
         return cls(
             root=root,
@@ -84,6 +91,7 @@ class ProjectPaths:
         )
 
     def as_dict(self) -> dict[str, Path]:
+        """Return the resolved paths keyed by their configuration names."""
         return {
             "root": self.root,
             "raw_data": self.raw_data,

@@ -13,7 +13,6 @@ from emnist_gan.constants import EMNIST_SELECTED_LABELS
 
 def ensure_channel_axis(images: ArrayLike) -> NDArray[np.float32]:
     """Return images as a four-dimensional array: batch, height, width, channel."""
-
     array = np.asarray(images)
     if array.ndim == 2:
         array = array[np.newaxis, :, :, np.newaxis]
@@ -30,7 +29,6 @@ def normalise_images(
     target_range: tuple[float, float] = (-1.0, 1.0),
 ) -> NDArray[np.float32]:
     """Scale image pixels from a source range to the target range used by tanh GANs."""
-
     source_min, source_max = source_range
     target_min, target_max = target_range
     if source_max <= source_min:
@@ -46,7 +44,6 @@ def normalise_images(
 
 def fix_image_orientation(images: ArrayLike) -> NDArray[np.float32]:
     """Rotate EMNIST images 90 degrees clockwise and mirror them left-to-right."""
-
     array = np.asarray(images)
     if array.ndim == 2:
         fixed = np.fliplr(np.rot90(array, k=-1))
@@ -62,7 +59,6 @@ def relabel_selected_letters(
     selected_labels: Iterable[int] = EMNIST_SELECTED_LABELS,
 ) -> NDArray[np.int64]:
     """Map original EMNIST letter labels to contiguous zero-based class indices."""
-
     mapping = {original_label: index for index, original_label in enumerate(selected_labels)}
     labels_array = np.asarray(labels).astype(int, copy=False)
     unknown_labels = sorted(set(labels_array.tolist()) - set(mapping))
@@ -75,7 +71,6 @@ def relabel_selected_letters(
 
 def one_hot(labels: ArrayLike, num_classes: int | None = None) -> NDArray[np.float32]:
     """One-hot encode integer labels without requiring TensorFlow/Keras."""
-
     labels_array = np.asarray(labels).astype(int, copy=False)
     if labels_array.ndim != 1:
         raise ValueError("labels must be a one-dimensional array")
@@ -94,7 +89,6 @@ def one_hot(labels: ArrayLike, num_classes: int | None = None) -> NDArray[np.flo
 
 def class_counts(labels: ArrayLike, class_names: dict[int, str] | None = None) -> dict[Any, int]:
     """Return class counts using optional human-readable class names."""
-
     labels_array = np.asarray(labels).astype(int, copy=False)
     counts = np.bincount(labels_array)
     if class_names is None:
